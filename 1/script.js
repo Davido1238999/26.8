@@ -10,6 +10,7 @@ let superArrObject = [];
 
 addBtn.addEventListener('click', function(e){
     e.preventDefault();
+    // if the value of the inputs is fullfilled 
     if(userName.value && email.value && phone.value && city.value){
         tableArr.push({
             userName:userName.value,
@@ -18,7 +19,7 @@ addBtn.addEventListener('click', function(e){
             city:city.value
         })
         console.log(tableArr[0].userName);
-
+        
         for(let i = 0; i<tableArr.length;i++){
             //create elements 
             let tr = document.createElement('tr');
@@ -72,6 +73,7 @@ addBtn.addEventListener('click', function(e){
             // append tr to tbody 
             tbody.appendChild(tr);
 
+            //obj for pushing the variables to the array
             obj = {
                 name:tdName.textContent,
                 email:tdEmail.textContent,
@@ -81,9 +83,6 @@ addBtn.addEventListener('click', function(e){
 
             printDetailsBtn.addEventListener('click',(e)=>{
                 let card = document.createElement('div');
-
-                // console.log(e.target.parentElement.parentElement.textContent);
-                // console.log(e.target.parentElement);
 
                 let cardName = e.target.parentNode.parentElement.cells[0].textContent;
                 let cardEmail = e.target.parentNode.parentElement.cells[1].textContent;
@@ -102,12 +101,7 @@ addBtn.addEventListener('click', function(e){
                     </div>
                 </div>
                 `;
-
                 printDetailsContainer.appendChild(card)
-
-
-
-                // console.log(e.target.parentNode.parentNode.cells[0].textContent);
             });
 
             // remove
@@ -115,21 +109,16 @@ addBtn.addEventListener('click', function(e){
                 e.target.parentElement.parentElement.remove();
             });
 
-
             // push obj to superArrObject 
-            superArrObject.push(obj)
+            superArrObject.push(obj);
 
             //tableArr equal 0 for reset the table  
             tableArr.length = 0;
 
-            console.log(superArrObject);
-            
             // reset inputs
-            // userName.value = "";
-            // email.value = "";
-            // phone.value = "";
-
-
+            userName.value = "";
+            email.value = "";
+            phone.value = "";
         }
     }else{
         alert('please enter all the fields');
