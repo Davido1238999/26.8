@@ -35,7 +35,6 @@ addBtn.addEventListener('click', function(e){
             userName.value = "";
             email.value = "";
             phone.value = "";
-            city.value = "";
         }
     }else{
         alert('please enter all the fields');
