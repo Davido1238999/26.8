@@ -1,13 +1,15 @@
+// Assign to variables
 let userName = document.querySelector('#userName');
 let email = document.querySelector('#email');
 let phone = document.querySelector('#phone');
 let city = document.querySelector('#city');
 let addBtn = document.querySelector('#addBtn');
 let tbody = document.querySelector('tbody');
+let clearBtn = document.querySelector('clearBtn');
 let printDetailsContainer = document.querySelector('.printDetailsContainer');
 let tableArr = [];
 let superArrObject = [];
-
+// add 
 addBtn.addEventListener('click', function(e){
     e.preventDefault();
     // if the value of the inputs is fullfilled 
@@ -54,7 +56,7 @@ addBtn.addEventListener('click', function(e){
             deleteBtn.classList.add('btn');
             deleteBtn.classList.add('btn-danger')
             deleteBtn.classList.add('deleteBtn')
-
+            
             // styling 
             tdContainer.classList.add('col');
             printDetailsBtn.style.width ="40%"
@@ -80,7 +82,7 @@ addBtn.addEventListener('click', function(e){
                 phone:tdPhone.textContent,
                 city:city.value
             };
-
+            // print eventListener
             printDetailsBtn.addEventListener('click',(e)=>{
                 let card = document.createElement('div');
 
@@ -126,3 +128,7 @@ addBtn.addEventListener('click', function(e){
     }
 })
 
+//clear all 
+clearBtn.addEventListener('click',(e)=>{
+    e.target.parentElement.parentElement.parentElement.remove();
+});
